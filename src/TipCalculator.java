@@ -13,10 +13,29 @@ public class TipCalculator {
         double price = scan.nextDouble();
         double totalPrice = 0;
         while (price != -1) {
+            totalPrice += price;
             System.out.print("Enter the cost of dollars and cents (-1 to end): ");
             price = scan.nextDouble();
-            totalPrice = price + price;
         }
-        System.out.print(totalPrice);
+        double totalTip = (totalPrice * tip) / 100.0;
+        String formattedTip = formatter.format(totalTip);
+        double cost = totalPrice + totalTip;
+        String formattedCost = formatter.format(cost);
+        double payPerPerson = totalPrice / numOfPeople;
+        String formattedCost2 = formatter.format(payPerPerson);
+        double tipPerPerson = totalTip / numOfPeople;
+        String formattedCost3 = formatter.format(tipPerPerson);
+        double totalCostPP = payPerPerson + tipPerPerson;
+        String formattedCost4 = formatter.format(totalCostPP);
+
+
+        System.out.println("Total bill before tip: " + totalPrice);
+        System.out.println("Tip percentage: " + tip);
+        System.out.println("Total tip: " + formattedTip);
+        System.out.println("Total bill: " + formattedCost);
+        System.out.println("Per Person Cost before tip: " + formattedCost2);
+        System.out.println("Tip Per Person: " + formattedCost3);
+        System.out.println("Total Cost Per Person: " + formattedCost4);
+
     }
 }
