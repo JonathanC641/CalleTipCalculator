@@ -2,11 +2,11 @@ import java.util.Scanner;
 import java.text.DecimalFormat;
 public class TipCalculator {
     public static void main(String [] args) {
-        // these are th tools that will be used throughout the program //
+        // these are the tools that will be used throughout the program //
         DecimalFormat formatter = new DecimalFormat("#.##");
         Scanner scan = new Scanner(System.in);
-        // This is the beginning of the program where it welcomes the user and tells them the information needed to //
-        // calculate their payment //
+        /* This is the beginning of the program where it welcomes the user and asks them for the information needed to
+        calculate their payment */
         System.out.println("Welcome! Let's calculate your tip!");
         System.out.print("How many people dined? ");
         int numOfPeople = scan.nextInt();
@@ -14,20 +14,21 @@ public class TipCalculator {
         int tip = scan.nextInt();
         System.out.print("Enter the cost of dollars and cents (-1 to end): ");
         double price = scan.nextDouble();
-        double totalPrice = 0;
+        //og stands for original which is used to make the variable shorter and show that this is the price before tip//
+        double ogPrice = 0;
         // The while loop is used to repeat the string below so that the user can enter all the items that were bought//
         while (price != -1) {
-            totalPrice += price;
+            ogPrice += price;
             System.out.print("Enter the cost of dollars and cents (-1 to end): ");
             price = scan.nextDouble();
         }
         // The code here modifies the appearance of the final values to represent monetary values //
-        String formattedPrice = formatter.format(totalPrice);
-        double totalTip = (totalPrice * tip) / 100.0;
+        String formattedPrice = formatter.format(ogPrice);
+        double totalTip = (ogPrice * tip) / 100.0;
         String formattedTip = formatter.format(totalTip);
-        double cost = totalPrice + totalTip;
-        String formattedCost = formatter.format(cost);
-        double payPerPerson = totalPrice / numOfPeople;
+        double totalCost = ogPrice + totalTip;
+        String formattedCost = formatter.format(totalCost);
+        double payPerPerson = ogPrice / numOfPeople;
         String formattedCost2 = formatter.format(payPerPerson);
         double tipPerPerson = totalTip / numOfPeople;
         String formattedCost3 = formatter.format(tipPerPerson);
