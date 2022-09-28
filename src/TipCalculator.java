@@ -22,6 +22,7 @@ public class TipCalculator {
             price = scan.nextDouble();
         }
         // The code here modifies the appearance of the final values to represent monetary values //
+        String formattedPrice = formatter.format(totalPrice);
         double totalTip = (totalPrice * tip) / 100.0;
         String formattedTip = formatter.format(totalTip);
         double cost = totalPrice + totalTip;
@@ -34,7 +35,7 @@ public class TipCalculator {
         String formattedCost4 = formatter.format(totalCostPP);
 
         // This final part of the code are the messages stating the total price and the price each person must pay //
-        System.out.println("Total bill before tip: " + totalPrice);
+        System.out.println("Total bill before tip: " + formattedPrice);
         System.out.println("Tip percentage: " + tip);
         System.out.println("Total tip: " + formattedTip);
         System.out.println("Total bill: " + formattedCost);
